@@ -9,22 +9,28 @@ class Point {
 private:
   double x;
   double y;
+  double z;
 
 public:
   // Constructors
-  Point();                      // default constructor
-  Point(double x, double y);    // two-argument constructor
+    Point();                      // default constructor
+    Point(double x, double y, double z);    // two-argument constructor
 
   // Destructor
-  ~Point();
+    ~Point();
 
   // Mutator methods
-  void setX(double newX);
-  void setY(double newY);
+    void setX(double newX);
+    void setY(double newY);
+    void setZ(double newZ);
 
   // Accessor methods
-  double getX();
-  double getY();
+    double getX();
+    double getY();
+    double getZ();
+
+    // Other methods
+    double distanceTo(Point &);
 };
 
 #endif // __point_h

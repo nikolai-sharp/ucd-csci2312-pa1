@@ -1,17 +1,20 @@
 #include "Point.h"
+#include <cmath>
 
 // Default constructor
 // Initializes the point to (0.0, 0.0)
 Point::Point() {
   x = 0.0;
   y = 0.0;
+  z = 0.0;
 }
 
 // Constructor
 // Initializes the point to (initX, initY)
-Point::Point(double initX, double initY) {
+Point::Point(double initX, double initY, double initZ) {
   x = initX;
   y = initY;
+  z = initZ;
 }
 
 // Destructor
@@ -31,6 +34,10 @@ void Point::setY(double newY) {
   y = newY;
 }
 
+void Point::setZ(double newZ) {
+  z = newZ;
+}
+
 // Accessors
 // Return the current values of private member variables
 
@@ -40,4 +47,19 @@ double Point::getX() {
 
 double Point::getY() {
   return y;
+}
+
+double Point::getZ(){
+  return z;
+}
+
+double Point::distanceTo(Point & point1)
+{
+  double xDist, yDist, zDist, dist;
+  xDist = point1.getX() - x;
+  yDist = point1.getY() - y;
+  zDist = point1.getZ() - z;
+  dist = sqrt(pow(xDist,2) + pow(yDist,2) + pow(zDist,2));
+  return dist;
+
 }
