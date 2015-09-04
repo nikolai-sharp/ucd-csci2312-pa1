@@ -9,51 +9,80 @@
 
 using namespace std;
 
-double computeArea(Point[]);
+double computeArea(Point &, Point &, Point &);
 
 int main(void)
 {
-    //array of 3 points to represent triangle. allows for for loop when assigning.
-    Point points[3];
-
-    //point holder
-    double hold;
+    //point holders
+    double x, y, z, area;
 
     //ask user for input
-    cout << "Please input the coordinates for each of the three points";
+    cout << "\nPlease input the coordinates for each of the three points:\n";
 
 
-    //For loop repeats three times, saves code space.
-    for (int i = 0; i < 3; i++)
-    {
-        cout << "\npoint " << i+1 << " x: ";
-        cin >> hold;
-        points[i].setX(hold);
+    //ask for user input and assign to x coordinate of first point
+    cout << "\npoint 1 x coordinate: ";
+    cin >> x;
 
-        cout << "\npoint " << i+1 << " y: ";
-        cin >> hold;
-        points[i].setY(hold);
+    //ask for user input and assign to y coordinate of first point
+    cout << "\npoint 1 y coordinate: ";
+    cin >> y;
 
-        cout << "\npoint " << i+1 << " z: ";
-        cin >> hold;
-        points[i].setZ(hold);
-    }
+    //ask for user input and assign to z coordinate of first point
+    cout << "\npoint 1 z coordinate: ";
+    cin >> z;
 
-    //informs user the area of the triangle and using computeArea in the cout
-    cout << "\n\nThe area of your triangle is: " << fixed << setprecision(2) << computeArea(points) << endl;
+    //create first point with user input using constructor
+    Point point1(x, y, z);
+
+    //ask for user input and assign to x coordinate of second point
+    cout << "\npoint 2 x coordinate: ";
+    cin >> x;
+
+    //ask for user input and assign to y coordinate of second point
+    cout << "\npoint 2 y coordinate: ";
+    cin >> y;
+
+    //ask for user input and assign to z coordinate of second point
+    cout << "\npoint 2 z coordinate: ";
+    cin >> z;
+
+    //create second point with user input using constructor
+    Point point2(x, y, z);
+
+    //ask for user input and assign to x coordinate of third point
+    cout << "\npoint 3 x coordinate: ";
+    cin >> x;
+
+    //ask for user input and assign to y coordinate of third point
+    cout << "\npoint 3 y coordinate: ";
+    cin >> y;
+
+    //ask for user input and assign to z coordinate of third point
+    cout << "\npoint 3 z coordinate: ";
+    cin >> z;
+
+    //create third point with user input using constructor
+    Point point3(x, y, z);
+
+    //compute the area of the 3D triangle from these points
+    area = computeArea(point1, point2, point3);
+
+    //informs user the area of the triangle
+    cout << "\n\nThe area of your triangle is: " << fixed << setprecision(2) << area << endl;
 
 
     return 0;
 }
 
-double computeArea(Point points[])
+double computeArea(Point &cPoint1, Point &cPoint2, Point &cPoint3)
 {
     double a, b, c, p, area;
 
     //Find the lengths of each side using distanceTo
-    a = points[0].distanceTo(points[1]);
-    b = points[1].distanceTo(points[2]);
-    c = points[2].distanceTo(points[0]);
+    a = cPoint1.distanceTo(cPoint2);
+    b = cPoint2.distanceTo(cPoint3);
+    c = cPoint3.distanceTo(cPoint1);
 
     //find 1/2 the length of the perimeter for Heron's formula
     p = (a + b + c)/2;
