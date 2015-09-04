@@ -1,3 +1,5 @@
+// Edited and added to by: Nikolai Sharp
+
 #include "Point.h"
 #include <cmath>
 
@@ -53,13 +55,21 @@ double Point::getZ(){
   return z;
 }
 
+  //definition of distanceTo calculates distance between original point and supplied point.
 double Point::distanceTo(Point & point1)
 {
+
   double xDist, yDist, zDist, dist;
+
+  //distance between each coordinate found.
   xDist = point1.getX() - x;
   yDist = point1.getY() - y;
   zDist = point1.getZ() - z;
+
+  //finds the square root of the sums of the three squared values for distance between two points.
   dist = sqrt(pow(xDist,2) + pow(yDist,2) + pow(zDist,2));
+
+  //return result
   return dist;
 
 }

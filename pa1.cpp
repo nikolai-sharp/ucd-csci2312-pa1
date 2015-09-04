@@ -1,5 +1,5 @@
-//
-//
+// coded by: Nikolai Sharp
+// last edited: 04SEP15 2PM
 //
 
 #include <iostream>
@@ -38,6 +38,7 @@ int main(void)
         points[i].setZ(hold);
     }
 
+    //informs user the area of the triangle and using computeArea in the cout
     cout << "\n\nThe area of your triangle is: " << computeArea(points) << endl;
 
 
