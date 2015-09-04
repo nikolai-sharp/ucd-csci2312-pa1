@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 #include "Point.h"
 
 using namespace std;
@@ -39,7 +40,7 @@ int main(void)
     }
 
     //informs user the area of the triangle and using computeArea in the cout
-    cout << "\n\nThe area of your triangle is: " << computeArea(points) << endl;
+    cout << "\n\nThe area of your triangle is: " << fixed << setprecision(2) << computeArea(points) << endl;
 
 
     return 0;
